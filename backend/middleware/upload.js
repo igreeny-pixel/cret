@@ -33,6 +33,14 @@ const fileFilter = (req, file, cb) => {
   
   const fileExtension = path.extname(file.originalname).toLowerCase();
   
+  console.log('File upload debug:', {
+    originalname: file.originalname,
+    mimetype: file.mimetype,
+    fileExtension: fileExtension,
+    allowedTypes: allowedTypes,
+    allowedExtensions: allowedExtensions
+  });
+  
   if (allowedTypes.includes(file.mimetype) && allowedExtensions.includes(fileExtension)) {
     cb(null, true);
   } else {

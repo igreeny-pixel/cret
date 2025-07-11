@@ -9,15 +9,7 @@ const qrGenerator = require('../utils/qrGenerator');
 
 const router = express.Router();
 
-app.use(cors({
-  origin: [
-    'http://localhost:12000',  // Add your frontend origin here
-    // Add other allowed origins if needed, e.g., 'http://localhost:3000'
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow these methods
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // Allow these headers
-  credentials: true  // Optional, if you’re using cookies or authentication
-}));
+// CORS is handled in server.js
 
 // POST /upload - Upload certificate
 router.post('/upload', upload.single('certificate'), async (req, res) => {
